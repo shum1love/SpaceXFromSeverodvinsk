@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.spacecompany.ui.DashboardController" styleClass="view">
+    <padding>
+        <Insets top="16" right="16" bottom="16" left="16"/>
+    </padding>
+    <Label text="Обзор компании" styleClass="h1"/>
+    <HBox spacing="10">
+        <Label fx:id="companyName" text="..." styleClass="hero-name"/>
+        <Label fx:id="foundedLabel" text="..." styleClass="hero-sub"/>
+    </HBox>
+    <GridPane hgap="12" vgap="12">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+        </rowConstraints>
+        <VBox styleClass="card" GridPane.columnIndex="0">
+            <Label text="Баланс" styleClass="card-title"/>
+            <Label fx:id="balanceValue" text="..." styleClass="card-big"/>
+        </VBox>
+        <VBox styleClass="card" GridPane.columnIndex="1">
+            <Label text="Ракет" styleClass="card-title"/>
+            <Label fx:id="rocketsValue" text="..." styleClass="card-big"/>
+        </VBox>
+        <VBox styleClass="card" GridPane.columnIndex="2">
+            <Label text="Сотрудников" styleClass="card-title"/>
+            <Label fx:id="employeesValue" text="..." styleClass="card-big"/>
+        </VBox>
+        <VBox styleClass="card" GridPane.columnIndex="3">
+            <Label text="Миссий" styleClass="card-title"/>
+            <Label fx:id="missionsValue" text="..." styleClass="card-big"/>
+        </VBox>
+        <VBox styleClass="card" GridPane.columnIndex="4">
+            <Label text="Успешность" styleClass="card-title"/>
+            <Label fx:id="successValue" text="..." styleClass="card-big"/>
+        </VBox>
+    </GridPane>
+    <HBox spacing="12">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Недавние полёты" styleClass="h2"/>
+            <ListView fx:id="flightsList" prefHeight="220" styleClass="list"/>
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Недавние операции" styleClass="h2"/>
+            <ListView fx:id="moneyList" prefHeight="220" styleClass="list"/>
+        </VBox>
+    </HBox>
+</VBox>

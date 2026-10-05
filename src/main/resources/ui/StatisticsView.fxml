@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.spacecompany.ui.StatisticsController" styleClass="view">
+    <padding>
+        <Insets top="16" right="16" bottom="16" left="16"/>
+    </padding>
+    <Label text="Статистика" styleClass="h1"/>
+    <GridPane hgap="12" vgap="12">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+        </columnConstraints>
+        <VBox styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label text="Полётов" styleClass="card-title"/>
+            <Label fx:id="flightsValue" text="..." styleClass="card-big"/>
+        </VBox>
+        <VBox styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <Label text="Доля успеха" styleClass="card-title"/>
+            <Label fx:id="successValue" text="..." styleClass="card-big"/>
+        </VBox>
+        <VBox styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <Label text="Деньги" styleClass="card-title"/>
+            <Label fx:id="moneyValue" text="..." styleClass="card-small" wrapText="true"/>
+        </VBox>
+        <VBox styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label text="Лучшие: сотрудник • ракета" styleClass="card-title"/>
+            <Label fx:id="bestValue" text="..." styleClass="card-small" wrapText="true"/>
+        </VBox>
+    </GridPane>
+    <Label text="Миссии по статусам" styleClass="h2"/>
+    <BarChart fx:id="statusChart" VBox.vgrow="ALWAYS" legendVisible="false" animated="false">
+        <xAxis>
+            <CategoryAxis fx:id="statusAxis" label="Статус"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="countAxis" label="Штук" tickUnit="1" minorTickCount="0"/>
+        </yAxis>
+    </BarChart>
+</VBox>

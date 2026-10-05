@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Корень: слева навигация, в центре текущий экран, снизу строка состояния. -->
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.spacecompany.ui.MainController"
+            styleClass="app" prefWidth="1100" prefHeight="700">
+    <left>
+        <VBox spacing="6" styleClass="sidebar">
+            <padding>
+                <Insets top="14" right="12" bottom="14" left="12"/>
+            </padding>
+            <Label text="🚀 КОСМОС" styleClass="logo"/>
+            <Label text="Северодвинск • est. 2026" styleClass="logo-sub"/>
+            <Button text="Обзор" onAction="#showDashboard" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="Ракеты" onAction="#showRockets" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="Сотрудники" onAction="#showEmployees" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="Миссии" onAction="#showMissions" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="Финансы" onAction="#showFinance" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="Статистика" onAction="#showStatistics" maxWidth="Infinity" styleClass="nav-button"/>
+        </VBox>
+    </left>
+    <bottom>
+        <HBox styleClass="statusbar">
+            <padding>
+                <Insets top="6" right="12" bottom="6" left="12"/>
+            </padding>
+            <Label fx:id="statusBar" text="..."/>
+        </HBox>
+    </bottom>
+</BorderPane>

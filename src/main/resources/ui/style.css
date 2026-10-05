@@ -1,0 +1,357 @@
+/* Тёмная минималистичная тема «Северодвинск».
+ * Палитра — вверху через looked-up colors: поменял здесь — поменялось везде.
+ * Классы используются из FXML, диалогов и фабрики Cells.
+ */
+
+.root {
+    -bg: #10141b;
+    -bg-soft: #1a2029;
+    -bg-card: #1f2631;
+    -bg-hover: #2a3342;
+    -bg-select: #31405a;
+    -line: #2c3542;
+    -text: #e8eef4;
+    -text-dim: #93a1b3;
+    -text-faint: #67727f;
+    -accent: #4aa3ff;
+    -accent-deep: #1d6fb8;
+    -accent-hover: #2f8fdd;
+    -good: #3fce7a;
+    -bad: #f0564d;
+    -warn: #f0a63c;
+    -wait: #c9a13b;
+    -info: #58b7dd;
+    -fly: #b07fe8;
+    -mute: #6b7684;
+    -mint: #8df0c2;
+}
+
+.app {
+    -fx-background-color: -bg;
+    -fx-font-family: "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* --- Боковая навигация --- */
+
+.sidebar {
+    -fx-background-color: -bg-soft;
+    -fx-border-color: transparent -line transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.logo {
+    -fx-text-fill: -accent;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 4 4;
+}
+
+.logo-sub {
+    -fx-text-fill: -text-faint;
+    -fx-font-size: 11px;
+    -fx-padding: 0 0 10 4;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-dim;
+    -fx-alignment: center-left;
+    -fx-padding: 9 12 9 12;
+    -fx-background-radius: 9;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+
+.nav-button:hover {
+    -fx-background-color: -bg-hover;
+    -fx-text-fill: -text;
+}
+
+.nav-button:focused {
+    -fx-background-color: -bg-select;
+    -fx-text-fill: white;
+}
+
+.statusbar {
+    -fx-background-color: -bg-soft;
+    -fx-border-color: -line transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.statusbar .label {
+    -fx-text-fill: -text-dim;
+    -fx-font-size: 12px;
+}
+
+/* --- Экраны и заголовки --- */
+
+.view {
+    -fx-background-color: -bg;
+    -fx-text-fill: -text;
+}
+
+.h1 {
+    -fx-text-fill: white;
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+}
+
+.h2 {
+    -fx-text-fill: -text-dim;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.hero-name {
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.hero-sub {
+    -fx-text-fill: -text-faint;
+    -fx-font-size: 12px;
+    -fx-padding: 3 0 0 0;
+}
+
+/* --- Карточки --- */
+
+.card {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 12;
+    -fx-padding: 14;
+    -fx-border-color: -line;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.card-title {
+    -fx-text-fill: -text-dim;
+    -fx-font-size: 11px;
+}
+
+.card-big {
+    -fx-text-fill: -accent;
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+}
+
+.card-small {
+    -fx-text-fill: -text;
+    -fx-font-size: 13px;
+}
+
+/* --- Цветные пилюли статусов (фабрика Cells) --- */
+
+.pill {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 20;
+}
+
+.pill-ready, .pill-good {
+    -fx-background-color: #143a26;
+    -fx-text-fill: -good;
+}
+
+.pill-wait {
+    -fx-background-color: #3d3117;
+    -fx-text-fill: -wait;
+}
+
+.pill-warn {
+    -fx-background-color: #3d2a12;
+    -fx-text-fill: -warn;
+}
+
+.pill-bad {
+    -fx-background-color: #40201e;
+    -fx-text-fill: -bad;
+}
+
+.pill-info {
+    -fx-background-color: #17394a;
+    -fx-text-fill: -info;
+}
+
+.pill-fly {
+    -fx-background-color: #32264a;
+    -fx-text-fill: -fly;
+}
+
+.pill-mute {
+    -fx-background-color: #262b33;
+    -fx-text-fill: -mute;
+}
+
+/* --- Списки и таблицы --- */
+
+.list, .table {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 10;
+    -fx-control-inner-background: -bg-card;
+    -fx-text-fill: -text;
+}
+
+.list-view, .table-view {
+    -fx-border-color: -line;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.list-view .list-cell, .table-view .table-cell {
+    -fx-text-fill: -text;
+    -fx-padding: 7 10 7 10;
+}
+
+.list-view .list-cell:odd, .table-view .table-row-cell:odd {
+    -fx-background-color: #1b212b;
+}
+
+.list-view .list-cell:selected, .table-view .table-row-cell:selected {
+    -fx-background-color: -bg-select;
+}
+
+.list-view .list-cell:selected .label, .table-view .table-row-cell:selected .label {
+    -fx-text-fill: white;
+}
+
+.table-view .column-header, .table-view .column-header-background {
+    -fx-background-color: #232b37;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -text-dim;
+    -fx-font-weight: bold;
+}
+
+.summary {
+    -fx-text-fill: -text;
+    -fx-font-size: 14px;
+}
+
+.log {
+    -fx-control-inner-background: #0c1015;
+    -fx-text-fill: -mint;
+    -fx-font-family: "Consolas", "SF Mono", "Menlo", monospace;
+    -fx-font-size: 12px;
+    -fx-border-color: -line;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+/* --- Кнопки и поля --- */
+
+.button {
+    -fx-background-color: -bg-hover;
+    -fx-text-fill: -text;
+    -fx-background-radius: 9;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #384354;
+}
+
+.button:pressed {
+    -fx-background-color: -bg-select;
+}
+
+.button:disabled {
+    -fx-opacity: 0.45;
+}
+
+.btn-primary {
+    -fx-background-color: -accent-deep;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.btn-primary:hover {
+    -fx-background-color: -accent-hover;
+}
+
+.combo-box, .text-field {
+    -fx-background-color: #232b37;
+    -fx-text-fill: -text;
+    -fx-background-radius: 9;
+    -fx-prompt-text-fill: -text-faint;
+    -fx-border-color: -line;
+    -fx-border-width: 1;
+    -fx-border-radius: 9;
+}
+
+.combo-box:focused, .text-field:focused {
+    -fx-border-color: -accent;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: -text;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #232b37;
+}
+
+/* --- Диалоги --- */
+
+.dialog {
+    -fx-background-color: -bg-card;
+}
+
+.dialog .label {
+    -fx-text-fill: -text;
+}
+
+.dialog .header-panel {
+    -fx-background-color: -bg-card;
+}
+
+/* --- Диаграммы --- */
+
+.chart {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 12;
+    -fx-border-color: -line;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-padding: 8;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines {
+    -fx-stroke: -line;
+}
+
+.axis {
+    -fx-tick-label-fill: -text-dim;
+}
+
+.axis-label {
+    -fx-text-fill: -text-faint;
+}
+
+.chart-bar {
+    -fx-bar-fill: -accent;
+}
+
+/* --- Прочее --- */
+
+.progress-indicator {
+    -fx-progress-color: -accent;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #384354;
+    -fx-background-radius: 6;
+}
