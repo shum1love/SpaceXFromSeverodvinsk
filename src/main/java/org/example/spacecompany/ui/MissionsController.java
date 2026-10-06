@@ -80,6 +80,8 @@ public class MissionsController extends BaseViewController {
 
     @FXML
     public void initialize() {
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        rewardColumn.getStyleClass().add("col-num");
         Cells.text(nameColumn, Mission::getName);
         Cells.text(typeColumn, mission -> mission.getType().getDisplayName());
         Cells.pill(statusColumn,
@@ -142,8 +144,10 @@ public class MissionsController extends BaseViewController {
         try {
             boolean ready = session.missions().refreshReadiness(mission.getId());
             readinessLabel.setText(ready ? "✅ ГОТОВА к запуску" : "⬜ Не готова: нужна заправленная ракета и полный экипаж");
+            readinessLabel.getStyleClass().setAll("pill", ready ? "pill-ready" : "pill-wait");
         } catch (SpaceCompanyException | IllegalArgumentException e) {
             readinessLabel.setText("⬜ " + e.getMessage());
+            readinessLabel.getStyleClass().setAll("pill", "pill-mute");
         }
     }
 

@@ -38,6 +38,9 @@ public class DashboardController implements Refreshable {
     private Label successValue;
 
     @FXML
+    private Label profitValue;
+
+    @FXML
     private ListView<String> flightsList;
 
     @FXML
@@ -59,6 +62,7 @@ public class DashboardController implements Refreshable {
         successValue.setText(MoneyUtils.formatPercent(session.statistics().successRate())
                 + " (" + session.statistics().successfulFlights()
                 + "/" + session.statistics().totalFlights() + ")");
+        profitValue.setText(MoneyUtils.format(session.finance().netProfit()));
 
         flightsList.getItems().clear();
         var history = session.company().getLaunchHistory();

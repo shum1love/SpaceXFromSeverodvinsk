@@ -21,34 +21,39 @@
     </HBox>
     <GridPane hgap="12" vgap="12">
         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="15"/>
             <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
-            <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
-            <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
-            <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
-            <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="15"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
         </columnConstraints>
         <rowConstraints>
             <RowConstraints/>
+            <RowConstraints/>
         </rowConstraints>
-        <VBox styleClass="card" GridPane.columnIndex="0">
-            <Label text="Баланс" styleClass="card-title"/>
+        <VBox styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label text="💰 Баланс" styleClass="card-title"/>
             <Label fx:id="balanceValue" text="..." styleClass="card-big"/>
         </VBox>
-        <VBox styleClass="card" GridPane.columnIndex="1">
-            <Label text="Ракет" styleClass="card-title"/>
+        <VBox styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <Label text="🚀 Ракет" styleClass="card-title"/>
             <Label fx:id="rocketsValue" text="..." styleClass="card-big"/>
         </VBox>
-        <VBox styleClass="card" GridPane.columnIndex="2">
-            <Label text="Сотрудников" styleClass="card-title"/>
+        <VBox styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <Label text="👥 Сотрудников" styleClass="card-title"/>
             <Label fx:id="employeesValue" text="..." styleClass="card-big"/>
         </VBox>
-        <VBox styleClass="card" GridPane.columnIndex="3">
-            <Label text="Миссий" styleClass="card-title"/>
+        <VBox styleClass="card" GridPane.columnIndex="3" GridPane.rowIndex="0">
+            <Label text="🛰️ Миссий" styleClass="card-title"/>
             <Label fx:id="missionsValue" text="..." styleClass="card-big"/>
         </VBox>
-        <VBox styleClass="card" GridPane.columnIndex="4">
-            <Label text="Успешность" styleClass="card-title"/>
+        <VBox styleClass="card" GridPane.columnIndex="4" GridPane.rowIndex="0">
+            <Label text="🎯 Успешность" styleClass="card-title"/>
             <Label fx:id="successValue" text="..." styleClass="card-big"/>
+        </VBox>
+        <VBox styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="5">
+            <Label text="📈 Прибыль за всё время (доходы − расходы)" styleClass="card-title"/>
+            <Label fx:id="profitValue" text="..." styleClass="card-big"/>
         </VBox>
     </GridPane>
     <HBox spacing="12">

@@ -2,8 +2,7 @@
 // QUEST 03 · ИНЖЕНЕР · equals, коллекции, generics
 // Уровни ROADMAP: LVL 21–26
 //
-//   javac -encoding UTF-8 quests/Quest03_Engineer.java
-//   java -cp quests Quest03_Engineer
+//   ./q 3
 //
 // Максимум: 160 XP.
 // ============================================================
@@ -33,14 +32,20 @@ public class Quest03_Engineer {
         System.out.println("⬜ " + name + " — ещё не сделано");
     }
 
+    // LVL-21 · Формат Predict: сначала ответь ВСЛУХ, потом запиши предсказание
+    // кодом и только потом запускай. Формат ответа: "<==>-<equals>", например "true-false".
+    static String predictEq() {
+        // TODO LVL-21: ✍️ Подумай: new String("Союз") == new String("Союз") → ?
+        // А .equals → ? Верни строку вида "false-true". Запуск рассудит!
+        throw new UnsupportedOperationException("LVL-21 not implemented");
+    }
+
     public static void main(String[] args) {
         System.out.println("=== QUEST 03 · ИНЖЕНЕР ===");
 
         try {
             // Ловушка LVL-21: два разных объекта с одинаковым текстом.
-            String a = new String("Союз");
-            String b = new String("Союз");
-            check((a == b) == false && a.equals(b), "LVL-21 · == vs equals (ловушка)", 20);
+            check(predictEq().equals("false-true"), "LVL-21 · == vs equals (предскажи!)", 20);
         } catch (UnsupportedOperationException e) {
             todo("LVL-21");
         }

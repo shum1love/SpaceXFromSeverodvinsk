@@ -1,0 +1,25 @@
+#!/bin/sh
+# Одноразовая настройка: команды u c t q p работают из ЛЮБОГО места одним словом.
+# Запуск: ./setup   (потом перезапусти терминал или выполни: source ~/.zshrc)
+set -e
+cd "$(dirname "$0")"
+HERE="$(pwd -P)"
+LINE="export PATH=\"$HERE:\$PATH\""
+MARK="SpaceCompanySimulatorPATH"
+DONE=0
+for RC in "$HOME/.zshrc" "$HOME/.bashrc"; do
+  if [ -f "$RC" ]; then
+    if grep -q "$MARK" "$RC" 2>/dev/null; then
+      echo "уже есть в $RC"
+    else
+      printf '\n# %s: короткие команды u c t q p\nif [ -d "%s" ]; then %s; fi\n' "$MARK" "$HERE" "$LINE" >> "$RC"
+      echo "добавлено в $RC"
+    fi
+    DONE=1
+  fi
+done
+if [ "$DONE" = "0" ]; then
+  printf '# %s: короткие команды u c t q p\nif [ -d "%s" ]; then %s; fi\n' "$MARK" "$HERE" "$LINE" >> "$HOME/.zshrc"
+  echo "создан $HOME/.zshrc"
+fi
+echo "Готово. Перезапусти терминал — и просто печатай: u | c | t | q 13 | p"

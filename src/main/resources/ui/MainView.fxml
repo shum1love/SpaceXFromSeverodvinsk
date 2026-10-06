@@ -18,12 +18,12 @@
             </padding>
             <Label text="🚀 КОСМОС" styleClass="logo"/>
             <Label text="Северодвинск • est. 2026" styleClass="logo-sub"/>
-            <Button text="Обзор" onAction="#showDashboard" maxWidth="Infinity" styleClass="nav-button"/>
-            <Button text="Ракеты" onAction="#showRockets" maxWidth="Infinity" styleClass="nav-button"/>
-            <Button text="Сотрудники" onAction="#showEmployees" maxWidth="Infinity" styleClass="nav-button"/>
-            <Button text="Миссии" onAction="#showMissions" maxWidth="Infinity" styleClass="nav-button"/>
-            <Button text="Финансы" onAction="#showFinance" maxWidth="Infinity" styleClass="nav-button"/>
-            <Button text="Статистика" onAction="#showStatistics" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="📊 Обзор" onAction="#showDashboard" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="🚀 Ракеты" onAction="#showRockets" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="👥 Сотрудники" onAction="#showEmployees" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="🛰️ Миссии" onAction="#showMissions" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="💰 Финансы" onAction="#showFinance" maxWidth="Infinity" styleClass="nav-button"/>
+            <Button text="📈 Статистика" onAction="#showStatistics" maxWidth="Infinity" styleClass="nav-button"/>
         </VBox>
     </left>
     <bottom>

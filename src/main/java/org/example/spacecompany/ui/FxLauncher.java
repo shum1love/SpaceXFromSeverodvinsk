@@ -9,7 +9,7 @@ import javafx.application.Application;
  * так запуск работает и в classpath-режиме без модулей, и из собранного
  * jpackage-пакета. Метод один: передать управление JavaFX.
  *
- * <p>Запуск для разработки: {@code mvn javafx:run} или {@code ./run-ui.sh}.
+ * <p>Запуск для разработки: {@code ./u} (или {@code mvn javafx:run}).
  */
 public class FxLauncher {
 

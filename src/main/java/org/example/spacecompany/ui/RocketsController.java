@@ -47,12 +47,23 @@ public class RocketsController extends BaseViewController {
 
     @FXML
     public void initialize() {
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         Cells.text(nameColumn, Rocket::getName);
         Cells.text(modelColumn, rocket -> rocket.getModel().getDisplayName());
         Cells.pill(statusColumn,
                 rocket -> Cells.rocketName(rocket.getStatus()),
                 rocket -> Cells.rocketPill(rocket.getStatus()));
-        Cells.text(fuelColumn, rocket -> rocket.getFuel() + "/" + rocket.getMaxFuel());
+        Cells.coloredText(fuelColumn,
+                rocket -> rocket.getFuel() + "/" + rocket.getMaxFuel(),
+                rocket -> {
+                    if (rocket.getFuel() >= rocket.getMaxFuel()) {
+                        return javafx.scene.paint.Color.web("#3fce7a");
+                    }
+                    if (rocket.getFuel() > 0) {
+                        return javafx.scene.paint.Color.web("#f0a63c");
+                    }
+                    return javafx.scene.paint.Color.web("#f0564d");
+                });
         Cells.text(conditionColumn, rocket -> rocket.getCondition() + "%");
         Cells.text(reliabilityColumn, rocket -> "%.2f".formatted(rocket.getReliability()));
         Cells.text(flightsColumn, rocket -> rocket.getSuccessCount() + "/" + rocket.getLaunchCount());

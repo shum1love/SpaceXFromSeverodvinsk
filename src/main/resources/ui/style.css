@@ -206,25 +206,89 @@
     -fx-padding: 7 10 7 10;
 }
 
-.list-view .list-cell:odd, .table-view .table-row-cell:odd {
+.list-view .list-cell:filled:odd, .table-view .table-row-cell:filled:odd {
     -fx-background-color: #1b212b;
 }
 
-.list-view .list-cell:selected, .table-view .table-row-cell:selected {
+.list-view .list-cell:filled:selected, .table-view .table-row-cell:filled:selected {
     -fx-background-color: -bg-select;
 }
 
-.list-view .list-cell:selected .label, .table-view .table-row-cell:selected .label {
+.list-view .list-cell:filled:selected {
     -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+/* Пилюли в выбранной строке сохраняют свои цвета: у ярлыка свой явный
+ * -fx-text-fill, он сильнее наследуемого от ячейки. Отдельных правил не нужно. */
+
+/* Встроенная светлая тема Modena красит ВЫБРАННОЕ В ФОКУСЕ в белёсый —
+ * перебиваем теми же селекторами, иначе клик по таблице «засвечивает» строку. */
+.list-view:focused > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected {
+    -fx-background-color: -bg-select;
+    -fx-table-cell-border-color: -bg-select;
+}
+
+.list-view:focused > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
+    -fx-text-fill: white;
+}
+
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+/* Заглушки пустых таблиц/списков: серая надпись была нечитаема. */
+.table-view .placeholder .label, .list-view .placeholder .label {
+    -fx-text-fill: -text-dim;
+    -fx-font-size: 13px;
 }
 
 .table-view .column-header, .table-view .column-header-background {
     -fx-background-color: #232b37;
 }
 
+/* Яркая белая сетка Modena на тёмном фоне бьёт по глазам — убираем границы
+ * ячеек совсем: строки разделяет зебра, столбцы — отступами. */
+.table-view {
+    -fx-table-cell-border-color: transparent;
+}
+
+/* Пустое место шапки справа и углы скроллбаров: без этого светят белым. */
+.table-view .column-header-background .filler,
+.table-view .corner {
+    -fx-background-color: #232b37;
+}
+
 .table-view .column-header .label {
     -fx-text-fill: -text-dim;
     -fx-font-weight: bold;
+    -fx-alignment: center-left;
+}
+
+/* Заголовок и ячейки — строго с одного левого края, иначе «плывёт». */
+.table-view .table-cell {
+    -fx-alignment: center-left;
+}
+
+/* Денежные колонки: числа — вправо, и заголовок, и ячейки. */
+.table-view .column-header.col-num .label {
+    -fx-alignment: center-right;
+}
+
+.table-view .table-cell.col-num {
+    -fx-alignment: center-right;
+}
+
+.table-view .table-row-cell:filled:hover {
+    -fx-background-color: -bg-hover;
+}
+
+.table-view .table-row-cell:filled:selected:hover {
+    -fx-background-color: -bg-select;
 }
 
 .summary {

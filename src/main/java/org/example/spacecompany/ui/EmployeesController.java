@@ -43,6 +43,8 @@ public class EmployeesController extends BaseViewController {
 
     @FXML
     public void initialize() {
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        salaryColumn.getStyleClass().add("col-num");
         Cells.text(nameColumn, Employee::getName);
         Cells.text(roleColumn, employee -> Cells.roleName(employee.getRole()));
         Cells.text(salaryColumn, employee -> MoneyUtils.format(employee.getSalary()));

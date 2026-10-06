@@ -3,8 +3,7 @@
 // Уровни ROADMAP: LVL 3–5
 //
 // Как запустить:
-//   javac -encoding UTF-8 quests/Quest00_Recruit.java
-//   java -cp quests Quest00_Recruit
+//   ./q 0
 //
 // Правила: методы с пометкой TODO бросают исключение —
 // программа компилируется и работает СРАЗУ, но показывает ⬜.

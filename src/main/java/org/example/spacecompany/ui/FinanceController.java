@@ -38,11 +38,17 @@ public class FinanceController extends BaseViewController {
 
     @FXML
     public void initialize() {
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        amountColumn.getStyleClass().add("col-num");
         Cells.text(timeColumn, transaction -> transaction.getTimestamp().toString());
-        Cells.text(amountColumn, transaction -> {
-            String sign = transaction.getType() == TransactionType.INCOME ? "+" : "−";
-            return sign + MoneyUtils.format(transaction.getAmount());
-        });
+        Cells.coloredText(amountColumn,
+                transaction -> {
+                    String sign = transaction.getType() == TransactionType.INCOME ? "+" : "−";
+                    return sign + MoneyUtils.format(transaction.getAmount());
+                },
+                transaction -> transaction.getType() == TransactionType.INCOME
+                        ? javafx.scene.paint.Color.web("#3fce7a")
+                        : javafx.scene.paint.Color.web("#f0564d"));
         Cells.text(descriptionColumn, Transaction::getDescription);
     }
 

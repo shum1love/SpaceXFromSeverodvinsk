@@ -1,5 +1,5 @@
 @echo off
-rem Консольная версия: собирает jar и запускает игру в терминале.
+rem Терминал: c
 cd /d %~dp0
 call mvn -q package -DskipTests
 if errorlevel 1 exit /b 1

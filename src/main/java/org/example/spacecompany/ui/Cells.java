@@ -26,6 +26,32 @@ public final class Cells {
     }
 
     /**
+     * Текстовая колонка с цветом по строке: деньги (доход/расход),
+     * топливо (полный бак/пустой) и т.п. Цвет задаёт функция от строки.
+     */
+    public static <T> void coloredText(TableColumn<T, String> column,
+                                       Function<T, String> textOf,
+                                       Function<T, javafx.scene.paint.Paint> colorOf) {
+        column.setCellValueFactory(cell -> new ReadOnlyObjectWrapper<>(textOf.apply(cell.getValue())));
+        column.setCellFactory(col -> new TableCell<>() {
+            @Override
+            protected void updateItem(String text, boolean empty) {
+                super.updateItem(text, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    @SuppressWarnings("unchecked")
+                    T row = (T) getTableRow().getItem();
+                    setText(text);
+                    if (row != null) {
+                        setTextFill(colorOf.apply(row));
+                    }
+                }
+            }
+        });
+    }
+
+    /**
      * Колонка-«пилюля»: цветной ярлык (статус ракеты, миссии, сотрудника).
      *
      * @param textOf  текст ярлыка

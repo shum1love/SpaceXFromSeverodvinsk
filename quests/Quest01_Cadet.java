@@ -2,8 +2,7 @@
 // QUEST 01 · КАДЕТ · Основы: типы, ветвления, циклы, методы
 // Уровни ROADMAP: LVL 6–11
 //
-//   javac -encoding UTF-8 quests/Quest01_Cadet.java
-//   java -cp quests Quest01_Cadet
+//   ./q 1
 //
 // Максимум: 130 XP.
 // ============================================================
@@ -85,8 +84,115 @@ public class Quest01_Cadet {
             todo("LVL-11 · static/final: тариф");
         }
 
+        try {
+            check(unbox(null) == -1, "LVL-6В · NPE при распаковке null", 20);
+        } catch (UnsupportedOperationException e) {
+            todo("LVL-6В · NPE при распаковке null");
+        }
+
+        try {
+            check(cached127() && !cached128(), "LVL-6В · кеш Integer: 127 да, 128 нет", 20);
+        } catch (UnsupportedOperationException e) {
+            todo("LVL-6В · кеш Integer: 127 да, 128 нет");
+        }
+
+        try {
+            check(triggerInit().equals("static-parent,static-child,parent,child"),
+                    "LVL-11 · порядок инициализации", 20);
+        } catch (UnsupportedOperationException e) {
+            todo("LVL-11 · порядок инициализации");
+        }
+
+        try {
+            check(Hider.describe(new Hider.Child()).equals("child-instance|parent-static"),
+                    "LVL-11 · hiding: static по ссылке, instance по объекту", 20);
+        } catch (UnsupportedOperationException e) {
+            todo("LVL-11 · hiding: static по ссылке, instance по объекту");
+        }
+
         System.out.println("------------------------");
-        System.out.println("ИТОГО XP: " + xp + " / 130");
+        System.out.println("ИТОГО XP: " + xp + " / 210");
+    }
+
+    // LVL-6В · Распакуй Integer в int, но null роняет NPE! Верни -1 для null (защита!).
+    static int unbox(Integer box) {
+        // TODO: ✍️ if (box == null) return -1; return box; — распаковка неявная, NPE реальный!
+        throw new UnsupportedOperationException("unbox not implemented");
+    }
+
+    // LVL-6В · Integer кеширует -128..127: == работает внутри кеша и врёт снаружи.
+    // Верни true оба раза? Нет — верни РЕЗУЛЬТАТЫ сравнений: cache127True и cache128False!
+    static boolean cached127() {
+        // TODO: ✍️ Integer a = 127, b = 127; return a == b; — один объект из кеша!
+        throw new UnsupportedOperationException("cached127 not implemented");
+    }
+
+    static boolean cached128() {
+        // TODO: ✍️ Integer a = 128, b = 128; return a == b; — разные объекты! Всегда equals для значений!
+        throw new UnsupportedOperationException("cached128 not implemented");
+    }
+
+    // LVL-11 · Порядок инициализации: static-родитель → static-наследник →
+    // конструктор родителя → конструктор наследника. Классы ниже дописывать НЕ надо —
+    // они готовы! Твоя задача: ПРЕДСКАЗАТЬ строку, потом проверить запуском.
+    static String triggerInit() {
+        // TODO: ✍️ new InitOrder.C(); return InitOrder.log;
+        throw new UnsupportedOperationException("triggerInit not implemented");
+    }
+
+    static class InitOrder {
+        static String log = "";
+
+        static class P {
+            static {
+                log += "static-parent,";
+            }
+
+            P() {
+                log += "parent,";
+            }
+        }
+
+        static class C extends P {
+            static {
+                log += "static-child,";
+            }
+
+            C() {
+                log += "child";
+            }
+        }
+    }
+
+    // LVL-11 · Hiding: static-метод выбирается по типу ССЫЛКИ (compile-time!),
+    // instance-метод — по объекту (runtime!). Собери строку "X|Y" сам.
+    static class Hider {
+        static class Parent {
+            static String who() {
+                return "parent-static";
+            }
+
+            String hello() {
+                return "parent-instance";
+            }
+        }
+
+        static class Child extends Parent {
+            static String who() {
+                return "child-static";
+            }
+
+            @Override
+            String hello() {
+                return "child-instance";
+            }
+        }
+
+        static String describe(Parent p) {
+            // TODO: ✍️ верни p.who() + "|" + p.hello() для new Child().
+            // Предскажи ДО запуска: "child-static|child-instance" или "parent-static|child-instance"?
+            throw new UnsupportedOperationException("describe not implemented");
+        }
     }
 
     // LVL-6 · Этот метод НЕ МОЖЕТ изменить fuel вызывающего (примитив!).

@@ -2,8 +2,7 @@
 // QUEST 05 · СВЯЗИСТ · StringBuilder, деньги, время, файлы
 // Уровни ROADMAP: LVL 36–40
 //
-//   javac -encoding UTF-8 quests/Quest05_Signaler.java
-//   java -cp quests Quest05_Signaler
+//   ./q 5
 //
 // Максимум: 130 XP.
 // ============================================================

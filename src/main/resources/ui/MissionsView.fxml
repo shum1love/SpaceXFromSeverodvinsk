@@ -38,7 +38,7 @@
         </VBox>
         <VBox spacing="6" HBox.hgrow="ALWAYS">
             <Label text="Экипаж (Ctrl+клик — несколько)" styleClass="h2"/>
-            <ListView fx:id="crewList" prefHeight="110"/>
+            <ListView fx:id="crewList" prefHeight="110" styleClass="list"/>
             <Button text="Сохранить экипаж" onAction="#saveCrew"/>
         </VBox>
         <VBox spacing="6" HBox.hgrow="ALWAYS">

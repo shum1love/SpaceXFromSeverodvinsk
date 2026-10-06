@@ -1,0 +1,5 @@
+#!/bin/sh
+# Графика: ./u   (после ./setup — просто u из любого места)
+set -e
+cd "$(dirname "$0")"
+mvn javafx:run

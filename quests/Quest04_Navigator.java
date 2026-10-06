@@ -2,8 +2,7 @@
 // QUEST 04 · ШТУРМАН · Лямбды, стримы, Optional, исключения
 // Уровни ROADMAP: LVL 29–34
 //
-//   javac -encoding UTF-8 quests/Quest04_Navigator.java
-//   java -cp quests Quest04_Navigator
+//   ./q 4
 //
 // Максимум: 170 XP.
 // ============================================================
